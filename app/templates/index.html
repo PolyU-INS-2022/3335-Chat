@@ -32,7 +32,7 @@
                             <div class="dropdown">
                                 <ion-icon name="ellipsis-vertical-outline"></ion-icon>
                                 <div class="dropdown-content">
-                                    <a href="login">Logout</a>
+                                    <a href="logout">Logout</a>
                                 </div>
                             </div>
                         </li>
@@ -41,7 +41,7 @@
             <!--chat list-->
             <div class="chatlist" id="chatl">
                 {% for chat in chat_list: %}
-                    <a onclick="to_ppl({{chat.name}})" class="block {% if loop.first %}active{% endif %}" id="1">                                          
+                    <a onclick="window.location.href ='/chat?name={{chat.name}}';to_ppl({{chat.name}});" class="block {% if loop.first %}active{% endif %}" id="{{chat.name}}">                                          
                         <div class="details">
                             <div class="listHead">
                                 <h4>{{chat.name}}</h4>            

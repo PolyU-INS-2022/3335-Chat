@@ -24,7 +24,7 @@ def chat():
     targetuser = request.args.get("name")
     username = get_session_user_name()
     chat_list = get_chat_list(targetuser)
-    if targetuser == None:
+    if targetuser == None and len(chat_list) > 0:
         targetuser = chat_list[0]["name"]
     messages = get_message(targetuser)
     resp = make_response(render_template("index.html", chat_list=chat_list, messages=messages, username=username, targetuser=targetuser))
@@ -35,7 +35,6 @@ def chat():
 def chat_message():
     if not check_login(request.cookies.get("sessionid")):
         return make_response(redirect("/login"))
-    #print(request.args)
     chat_to(request.form)
     return make_response(redirect("/chat"))
 
@@ -67,3 +66,6 @@ def request_signup():
     elif logined:
         resp = make_response(redirect("/chat"))
     return resp
+
+if __name__ == "__main__":
+    app.run(debug=True,port=5555)

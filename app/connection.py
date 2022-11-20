@@ -7,7 +7,7 @@ def get_connection(account):
         data = json.load(f)
     ac = data[account]
     conn = mysql.connector.connect(
-        host = "localhost",
+        host = "mysql",
         port = 3306,
         user = ac["username"],
         passwd = ac["password"]

@@ -35,7 +35,7 @@ def get_message(targetuser):
     results = cursor.fetchall()
     data = []
     for result in results:
-        data.append({"message": result[0], "time": result[1], "send": result[2] !   = 1})
+        data.append({"message": result[0], "time": result[1], "send": result[2] == current_user_id})
     return data
 
 

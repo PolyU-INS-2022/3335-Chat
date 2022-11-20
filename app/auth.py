@@ -77,10 +77,10 @@ def logout():
 
 def register(resp, data):
     if data["password"] != data["password2"]:
-        print("failed")
+        print("Password Not Same")
         return resp, ["<p>Password Not Same</p>"]
     if len(data["name"]) <= 0:
-        print("failed")
+        print("User Name Too short")
         return resp, ["<p>User Name Too short</p>"]
     conn = get_connection("mysql-auth")
     cursor = conn.cursor()

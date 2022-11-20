@@ -43,7 +43,7 @@ sendMsg.addEventListener('keyup',(e)=>{
 })
 
 sendMsgBtn.addEventListener('click',(e)=>{
-    var data='message=' + sendMsg.innerText+"&"+'receiver='+getuser.innerText;
+    var data='message=' + sendMsg.value+"&"+'receiver='+getuser.innerText;
     fetch("/chat/message", {
         method: "POST",
         headers: {'Content-Type': 'application/x-www-form-urlencoded'}, 

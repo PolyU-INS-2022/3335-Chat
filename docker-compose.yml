@@ -1,0 +1,27 @@
+version: "3"
+
+services:
+    app:
+        build: ./app
+        container_name: app
+        depends_on:
+            - mysql
+        volumes:
+            - ./app.log:/app/app.log
+
+    mysql:
+        image: mysql:latest
+        env_file: 
+            - ./.env
+        volumes: 
+            - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+            - ./my.cnf:/etc/mysql/my.cnf
+
+    nginx:
+        image: nginx
+        volumes:
+            - ./nginx.conf:/etc/nginx/conf.d/default.conf
+        depends_on:
+            - app
+        ports:
+            - "80:80"

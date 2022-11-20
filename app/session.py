@@ -58,6 +58,14 @@ def check_login(sessionid):
     return len(result) > 0, len(result) > 0 and result[0][0] != None
 
 
+def extend_session(sessionid):
+    conn = get_connection("mysql-session")
+    cursor = conn.cursor()
+    cursor.execute("USE ChatRoom")
+    cursor.execute("UPDATE Session set ExpireTime=ADDDATE(NOW(), INTERVAL 30 MINUTE) WHERE SessionID=%s", (sessionid,))
+    conn.commit()
+
+
 def check_session(resp, login=True):
     sessionid = request.cookies.get("sessionid")
     if sessionid == None:
@@ -71,6 +79,7 @@ def check_session(resp, login=True):
         return resp, False
     if logined == False and login:
         return make_response(redirect("/login")), logined
+    extend_session(sessionid)
     return resp, logined
 
 
