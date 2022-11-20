@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="/static/css/basic.css">
+    <link rel="stylesheet" href="/static/css/signup.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li><a href="/">WhatsUp</a></li>
+        <li style="float:right"><a href="login">Login</a></li>
+    </ul>
+    <div class="center">
+        <h1>Sign Up</h1>
+        <img src="/static/image/signup.png" alt="">
+        <form method="post">
+            <label>Name</label>
+            <input type="text" name="name" required placeholder="">
+            <label>Email</label>
+            <input type="email" name="email" required placeholder="">
+            <label>Password</label>
+            <input type="password" name="password" required placeholder="">
+            <label>Confirm Password</label>
+            <input type="password" name="password2" required placeholder="">
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+</body>
+
+</html>

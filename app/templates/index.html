@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="../static/css/index.css">
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <div class="lcontainer">
+        <div class="leftSide">
+            <div class="header">
+                <!--<div class="userimg">
+                    <img src="../static/image/signup.png" class="cover">    
+                </div>-->                                                   <!--m3-->
+                <div class="username">
+                    <h4 id="loginUser">{{username}}</h4>                                          <!--add username m4-->
+                </div>
+                <ul class="nav_icons">
+                    <li>
+                        <ion-icon id="addfrd" name="add-outline"></ion-icon>
+                        <div id="addform" class="addform-content">
+                            <form action="/chat" class="addform" method="get">
+                                <label>Name</label>
+                                <input type="text" name="name" required placeholder="Username">
+                                <input type="submit" value="Add To Chat">
+                            </form>
+                        </div>
+                        <li>
+                            <div class="dropdown">
+                                <ion-icon name="ellipsis-vertical-outline"></ion-icon>
+                                <div class="dropdown-content">
+                                    <a href="login">Logout</a>
+                                </div>
+                            </div>
+                        </li>
+                </ul>
+            </div>
+            <!--chat list-->
+            <div class="chatlist" id="chatl">
+                {% for chat in chat_list: %}
+                    <a onclick="to_ppl({{chat.name}})" class="block {% if loop.first %}active{% endif %}" id="1">                                          
+                        <div class="details">
+                            <div class="listHead">
+                                <h4>{{chat.name}}</h4>            
+                            </div>
+                        </div>
+                    </a>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <div class="rcontainer">
+        <div class="rightSide">
+            <div class="header">
+                <div class="imgText">                                                    <!--m6-->
+                    <h4 id="targetUser">{{targetuser}}</h4>
+                </div>
+                <ul class="nav_icons">
+                    <li>
+                        <div class="dropdown">
+                            <ion-icon class="dropbtn" name="ellipsis-vertical-outline"></ion-icon>
+                            <div class="dropdown-content">
+                                <a href="#">Unfriend</a>
+                                <a href="logout">Logout</a>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="chatBox">
+                {% for message in messages: %}
+                <div class="message {% if message.send %}my_message{% else %}frd_message{% endif %}">
+                    <p>{{message.message}}<br><span>{{message.time}}</span></p>
+                </div>
+                {% endfor %}
+            </div>
+            <!--chat input-->
+            <div class="chatbox_input">
+                <input id="enterMsg" type="text" placeholder="Type a message">
+                <ion-icon id="send" name="send-outline"></ion-icon>
+            </div>
+        </div>
+    </div>
+    <script src="../static/javascript/index.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>

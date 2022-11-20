@@ -1,0 +1,18 @@
+{
+    "mysql-session": {
+        "username": "session",
+        "password": "asbd2&y3sfa31as3^3"
+    },
+    "mysql-auth": {
+        "username": "auth",
+        "password": "l*G123AS&4Dlasdkj%"
+    },
+    "mysql-login": {
+        "username": "login",
+        "password": "93yhosag^$YHLHF89qw4gro"
+    },
+    "mysql-chatroom": {
+        "username": "chatroom",
+        "password": "7%hgfHS1d124Dlas65T"
+    }
+}

@@ -1,0 +1,40 @@
+body{
+    margin:0;
+    padding: 0;
+    font-family: montserrat;
+
+}
+ul {
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px 0px;
+    overflow: hidden;
+    background-color: rgb(48, 213, 111);
+  }
+  
+  li {
+    float: left;
+  }
+  
+  li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 15px 30px;
+    text-decoration: none;
+    font-size: 20px;
+  }
+
+  /* Change the link color to #111 (black) on hover */
+  li:last-child a:hover {
+    background-color: #111;
+  }
+
+  
+
+  ul {
+    position: fixed;
+    top: 0;
+    width: 100%;
+  }
+
