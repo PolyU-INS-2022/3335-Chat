@@ -40,6 +40,9 @@ Create user 'chatroom' @'%' identified by '7%hgfHS1d124Dlas65T';
 grant select,insert on ChatRoom.ChatRecord to 'chatroom'@'%'; 
 
 
+CREATE USER 'spm-user'@'%' IDENTIFIED BY 'spm-password';
+
+
 CREATE EVENT minute_event
 ON SCHEDULE every 1 MINUTE
 DO
